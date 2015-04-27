@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_id">1571002346503771</string>
+    <string name="login_intro">Check out your Facebook profile by logging in with the button below!</string>
+    <string name="gender">Gender</string>
+    <string name="email">Email</string>
+
+    <string name="app_name">Time it Up</string>
+    <string name="action_settings">Settings</string>
+    <string name="quit_search">Do you want to quit?</string>
+    <string name="connection_error">Connection error</string>
+    <string name="try_again_connection">See your internet connection and try again.</string>
+    <string name="user_login_error">No google account logged</string>
+    <string name="request_error">Request error</string>
+    <string name="request_error_dialog">There was an error on our server. Try again later</string>
+    <string name="try_again_user_login">Connect with your google account and try again.</string>
+    <string name="no_user_logged_gmail">Log in to your Google account and try again</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="register_ok">Registered TI</string>
+    <string name="exit">Exit</string>
+    <string name="title_activity_ti">TIActivity</string>
+    <string name="sum">Sum</string>
+    <string name="error">Error!</string>
+    <string name="result">Result:</string>
+    <string name="number">Number:</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_ti">Add TI</string>
+    <string name="hours">Hours</string>
+    <string name="minutes">Minutes</string>
+    <string name="login_sucess">Logged user</string>
+    <string name="login_error">Invalid User</string>
+    <string name="inexistent_user">Inexistent user</string>
+    <string name="create_user_sucess">User is created</string>
+    <string name="create_user_error">User was not created</string>
+    <string name="message_login_autocomplete">Enter your login</string>
+    <string name="welcomeToTimeItUp">Welcome to Time it Up!</string>
+    <string name="title_activity_list_ti">ListTiActivity</string>
+    <string name="title_activity_time_it__up_main">Time_it_Up_main</string>
+    <string name="title_activity_create_ti">CreateTI</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_create">CreateActivity</string>
+    <string name="title_activity_weekly_monitoring">Weeks</string>
+    <string name="title_activity_alarm">Alarm</string>
+
+</resources>

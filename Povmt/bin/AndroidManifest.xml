@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.br.les.povmt"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.NETWORK" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="com.example.library.permission.REST_PERMISSION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SERVICE" />
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="21" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <uses-library android:name="android.test.runner" />
+
+        <activity
+            android:name="com.br.les.activities.CreateTI"
+            android:label="@string/title_activity_create_ti"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.br.les.facebook.LoginActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.br.les.facebook.UserDetailsActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+
+        <activity
+            android:name="com.br.les.activities.WeeklyMonitoring"
+            android:label="@string/title_activity_weekly_monitoring"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.br.les.activities.Alarm"
+            android:label="@string/title_activity_alarm"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <receiver
+            android:name="MyBroadcastReceiver"
+            android:process=":remote" >
+        </receiver>
+    </application>
+
+</manifest>

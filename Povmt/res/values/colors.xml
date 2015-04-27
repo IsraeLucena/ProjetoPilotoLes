@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="darker_grey">#4b4b4b</color>
+    <color name="darker_transparent">#29000000</color>
+    <color name="darker_opaque">#55000000</color>
+    <color name="darker_t">#00000000</color>
+    <color name="rate_edittext_background">#bababa</color>
+    <color name="transparent">#00000000</color>
+    <color name="button_click">#4B4B4B</color>
+    <color name="button_default">#818181</color>
+    <color name="text_yellow">#ffc700</color>
+    <color name="text_yellow_dark">#6B5300</color>
+    <color name="line_color">#aaaaaa</color>
+    <color name="field_edit">#dadada</color>
+    <color name="backg_create_user">#DCDCDC</color>
+    
+
+    <!-- button open -->
+    <color name="button_open_yellow">#e7c205</color>
+ <!-- cor antiga do amarelo #d7b023 -->
+    <color name="button_click_open_yellow">#736102</color>
+
+    <!-- button free -->
+    <color name="button_free_lighter_green">#86c06a</color>
+    <color name="button_click_free_lighter_green">#436035</color>
+
+    <!-- button install -->
+    <color name="button_install_darker_green">#557d44</color>
+    <color name="button_click_install_darker_green">#2a3e22</color>
+
+</resources>

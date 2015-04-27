@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item
+        android:id="@+id/action_createTI"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="Create TI"/>
+    
+   <!--  <item
+        android:id="@+id/action_setAlarm"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="Set Alarms"/>
+    <item
+        android:id="@+id/action_setings"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="Set Alarms"/> -->
+
+</menu>
