@@ -32,7 +32,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.br.les.facebook.LoginActivity"
+            android:name="com.br.les.activities.LoginActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop" >
             <intent-filter>
@@ -42,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.br.les.facebook.UserDetailsActivity"
+            android:name="com.br.les.activities.UserProfileActivity"
             android:label="@string/app_name" />
         <activity
             android:name="com.facebook.LoginActivity"
