@@ -24,9 +24,6 @@ import android.widget.Toast;
 
 import com.br.les.povmt.R;
 import com.br.les.report.TabsPagerAdapter;
-import com.br.les.timeitup.User;
-import com.br.les.util.HttpURLConnectionGET;
-import com.br.les.util.HttpURLConnectionPOST;
 import com.google.gson.Gson;
 
 public class WeeklyMonitoring extends FragmentActivity implements TabListener {
@@ -40,7 +37,6 @@ public class WeeklyMonitoring extends FragmentActivity implements TabListener {
     private static final String[] TABS = {
             "Current", "Last", "Before last"
     };
-    private User currentUser;
     private String json;
 
     @SuppressLint("NewApi")
@@ -59,7 +55,6 @@ public class WeeklyMonitoring extends FragmentActivity implements TabListener {
             if (bundle != null) {
                 json = bundle.getString(JSONUSER);
                 Gson gson = new Gson();
-                currentUser = gson.fromJson(json, User.class);
             } else {
                 String possibleEmail = "";
                 try {
@@ -73,35 +68,13 @@ public class WeeklyMonitoring extends FragmentActivity implements TabListener {
                     Log.i("Exception", "Exception:" + e);
                 }
 
-                HttpURLConnectionGET connGET = new HttpURLConnectionGET();
-                HttpURLConnectionPOST connPOST = new HttpURLConnectionPOST();
+                
                 // No Google account logged
                 if ("".equals(possibleEmail)) {
                     dialogError(R.string.user_login_error,
                             R.string.try_again_user_login);
                 } else {
-                    try {
-                        json = connGET.requestJson(possibleEmail);
-
-                        Gson gson = new Gson();
-                        if (json != null
-                                && "User not found".equals(json)) {
-                            currentUser = new User(possibleEmail,
-                                    possibleEmail);
-                            String userJson = gson.toJson(currentUser);
-                            connPOST.execute(userJson, possibleEmail);
-
-                        } else if (json == null) {
-                            dialogError(R.string.request_error,
-                                    R.string.request_error_dialog);
-                        } else {
-                            currentUser = gson.fromJson(json,
-                                    User.class);
-                        }
-
-                    } catch (Exception e) {
-                        Log.e("WEEKLY MONITORING", e.getMessage());
-                    }
+                    
                 }
             }
             initiatingView();

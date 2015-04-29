@@ -33,6 +33,7 @@ public class UserProfileActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.userdetails);
+    ParseFacebookUtils.initialize(getString(R.string.app_id));
 
     userProfilePictureView = (ProfilePictureView) findViewById(R.id.userProfilePicture);
     userNameView = (TextView) findViewById(R.id.userName);
@@ -87,7 +88,10 @@ public class UserProfileActivity extends Activity {
               currentUser.saveInBackground();
 
               // Show the user info
-              updateViewsWithProfileInfo();
+             Intent i = new Intent(getApplicationContext(), WeeklyMonitoring.class);
+             startActivity(i);
+              //updateViewsWithProfileInfo();
+              
             } catch (JSONException e) {
               Log.d(IntegratingFacebookApplication.TAG, "Error parsing returned user data. " + e);
             }

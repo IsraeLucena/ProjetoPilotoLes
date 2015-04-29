@@ -2,12 +2,16 @@
 package com.br.les.timeitup;
 
 import java.util.Calendar;
+import java.util.Date;
+
+import org.joda.time.DateTime;
+import org.joda.time.Interval;
 
 public class ActivityTI implements Comparable<ActivityTI> {
 
     private String name;
-    private int hour;
-    private int minute;
+    private Date started;
+    private Date finished;
     private int priority;
     private final int mDayOfYear;
     private final Calendar c = Calendar.getInstance();
@@ -16,14 +20,14 @@ public class ActivityTI implements Comparable<ActivityTI> {
      * Creator for a new ActivityTI.
      * 
      * @param name - The name of this Activity.
-     * @param minute
-     * @param hour - The time spent on this Activity
+     * @param finished
+     * @param started - The time spent on this Activity
      */
-    public ActivityTI(final String name, final int hour, final int minute,
+    public ActivityTI(final String name, final Date started, final Date finished,
             final int priority) {
         this.name = name;
-        this.hour = hour;
-        this.minute = minute;
+        this.started = started;
+        this.finished = finished;
         this.priority = priority;
         mDayOfYear = c.get(Calendar.DAY_OF_YEAR);
     }
@@ -91,13 +95,13 @@ public class ActivityTI implements Comparable<ActivityTI> {
      * @param hour - The time for add in this ActivityTI.
      */
     public final void addTime(final int hour, final int minute) {
-        this.hour += hour;
-        this.minute += minute;
-
-        if (this.minute > 60) {
-            this.hour++;
-            this.minute -= 60;
-        }
+//        this.started += hour;
+//        this.finished += minute;
+//
+//        if (this.finished > 60) {
+//            this.started++;
+//            this.finished -= 60;
+//        }
     }
 
     /**
@@ -135,11 +139,11 @@ public class ActivityTI implements Comparable<ActivityTI> {
      */
     @Override
     public final int compareTo(final ActivityTI actTi) {
-        if (getHour() > actTi.hour) {
-            return -1;
-        } else if (getHour() < actTi.getHour()) {
-            return 1;
-        }
+//        if (getStart() > actTi.started) {
+//            return -1;
+//        } else if (getStart() < actTi.getStart()) {
+//            return 1;
+//        }
         return 0;
     }
 
@@ -151,32 +155,35 @@ public class ActivityTI implements Comparable<ActivityTI> {
         return " "
                 + getName()
                 + " - "
-                + (String.valueOf(getHour()).length() >= 2 ? getHour() : "0"
-                        + getHour())
+                + (String.valueOf(getStart()).length() >= 2 ? getStart() : "0"
+                        + getStart())
                 + ":"
-                + (String.valueOf(getMinute()).length() == 2 ? getMinute()
-                        : "0" + getMinute()) + " - "
+                + (String.valueOf(getEnd()).length() == 2 ? getEnd()
+                        : "0" + getEnd()) + " - "
                 + getPriority();
     }
 
-    public final int getMinute() {
-        return minute;
+    public final Date getEnd() {
+        return finished;
     }
 
-    public final void setMinute(final int minute) {
-        this.minute = minute;
+    public final void setEnd(final Date newEnd) {
+        this.finished = newEnd;
     }
 
-    public final int getHour() {
-        return hour;
+    public final Date getStart() {
+        return started;
     }
 
-    public final void setHour(final int hour) {
-        this.hour = hour;
+    public final void setStart(final Date newStart) {
+        this.started = newStart;
     }
 
-    public final float getTime() {
-        return getHour() * 60 + getMinute();
+    public final String getTime() {
+        DateTime start = new DateTime(started);
+        DateTime end = new DateTime(finished);
+        Interval interval = new Interval(start, end);      
+        return interval.toString();
     }
 
     public final int getDayOfTI() {

@@ -1,21 +1,27 @@
 
 package com.br.les.activities;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.br.les.povmt.R;
 import com.br.les.timeitup.ActivityTI;
-import com.br.les.timeitup.User;
-import com.br.les.util.HttpURLConnectionPOST;
-import com.google.gson.Gson;
+import com.parse.ParseObject;
 
 public class CreateTI extends Activity {
 
@@ -25,9 +31,15 @@ public class CreateTI extends Activity {
                               // ficar
                               // como 2.
     private NumberPicker minutes;
-    private User currentUser;
+    private TextView tvDateStart;
     private String jsonUser;
     private static final String JSONUSER = "JsonUser";
+
+    static final int DATE_DIALOG_ID = 999;
+
+    private int year;
+    private int month;
+    private int day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,29 +48,23 @@ public class CreateTI extends Activity {
 
         Bundle bundle = getIntent().getExtras();
         jsonUser = bundle.getString(JSONUSER);
-        final Gson gson = new Gson();
-        currentUser = gson.fromJson(jsonUser, User.class);
-        // System.out.println("####USUARIO: " + currentUser);
 
-        hours = (NumberPicker) findViewById(R.id.hours);
-        hours.setMaxValue(167);
-        hours.setMinValue(0);
-        hours.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal,
-                    int newVal) {
-                hours.setValue(newVal);
-            }
-        });
+        final Calendar c = Calendar.getInstance();
+        year = c.get(Calendar.YEAR);
+        month = c.get(Calendar.MONTH) + 1;
+        day = c.get(Calendar.DAY_OF_MONTH);
 
-        minutes = (NumberPicker) findViewById(R.id.minutes);
-        minutes.setMaxValue(59);
-        minutes.setMinValue(0);
-        minutes.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        tvDateStart = (TextView) findViewById(R.id.tvDateStart);
+        Calendar calendar = Calendar.getInstance();
+        tvDateStart.setText(day + "/" + month + "/"
+                + year);
+
+        Button startBt = (Button) findViewById(R.id.dateStartBt);
+        startBt.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onValueChange(NumberPicker picker, int oldVal,
-                    int newVal) {
-                minutes.setValue(newVal);
+            public void onClick(View v) {
+                showDialog(DATE_DIALOG_ID);
             }
         });
 
@@ -70,17 +76,10 @@ public class CreateTI extends Activity {
                 Toast toast = Toast.makeText(getApplicationContext(),
                         R.string.register_ok, Toast.LENGTH_SHORT);
                 toast.show();
-                myActivityTI = new ActivityTI(name.getText().toString(),
-                        hours.getValue(), minutes.getValue(), priority);
-                currentUser.isActualWeek();
-                currentUser.getFirstWeek().addTI(myActivityTI);
-                String userJson = gson.toJson(currentUser);
-                HttpURLConnectionPOST connPOST = new HttpURLConnectionPOST();
-                connPOST.execute(userJson, currentUser.getEmail());
-                Intent i = new Intent(CreateTI.this, WeeklyMonitoring.class);
-                i.putExtra(JSONUSER, userJson);
-                finish();
-                startActivity(i);
+                ParseObject newActivity = new ParseObject("Activity");
+                // Intent i = new Intent(CreateTI.this, WeeklyMonitoring.class);
+                // finish();
+                // startActivity(i);
             }
         });
 
@@ -97,34 +96,35 @@ public class CreateTI extends Activity {
         });
     }
 
-    /**
-     * If back button pressed, finalize Activity.
-     */
     @Override
-    public final void onBackPressed() {
-        Intent i = new Intent(CreateTI.this, WeeklyMonitoring.class);
-        i.putExtra(JSONUSER, jsonUser);
-        finish();
-        startActivity(i);
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DATE_DIALOG_ID:
+                // set date picker as current date
+                return new DatePickerDialog(this, datePickerListener,
+                        year, month, day);
+        }
+        return null;
     }
 
-    public void onRadioButtonClicked(View view) {
-        boolean checked = ((RadioButton) view).isChecked();
-        if (checked) {
-            switch (view.getId()) {
-                case R.id.hiPriority:
-                    priority = 2;
-                    break;
-                case R.id.mediumPriority:
-                    priority = 1;
-                    break;
-                case R.id.lowPriority:
-                    priority = 0;
-                    break;
-                default:
-                    priority = 0;
-                    break;
+    private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+
+        // when dialog box is closed, below method will be called.
+        public void onDateSet(DatePicker view, int selectedYear,
+                int selectedMonth, int selectedDay) {
+            year = selectedYear;
+            month = selectedMonth + 1;
+            day = selectedDay;
+            String date;
+            // set selected date into textvie
+            if (month > 9) {
+                date = day + "/" + month + "/" + year;
+            } else {
+                date = day + "/0" + month + "/" + year;
             }
+            tvDateStart.setText(date);
+            // set selected date into datepicker also
+
         }
-    }
+    };
 }

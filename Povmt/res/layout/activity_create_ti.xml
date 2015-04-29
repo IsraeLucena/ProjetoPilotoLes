@@ -1,21 +1,52 @@
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context="${packageName}.${activityClass}" >
 
-    <AutoCompleteTextView
+    <EditText
         android:id="@+id/name_field"
+        android:layout_marginBottom="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_x="59dp"
-        android:layout_y="129dp"
-        android:background="@color/field_edit"
-        android:completionHint="@string/message_login_autocomplete"
-        android:completionThreshold="1"
-        android:ems="10"
-        android:gravity="center" />
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+    
+    <TimePicker
+        android:id="@+id/timePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvDateStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Button
+            android:layout_marginLeft="30dp"
+            android:id="@+id/dateStartBt"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/calendar" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/TI_text"
@@ -27,15 +58,6 @@
         android:gravity="center"
         android:text="Create TI"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <NumberPicker
-        android:id="@+id/hours"
-        android:layout_width="60dp"
-        android:layout_height="110dp"
-        android:layout_marginRight="46dp"
-        android:layout_x="52dp"
-        android:layout_y="210dp"
-        android:gravity="center" />
 
     <Button
         android:id="@+id/button_create"
@@ -61,45 +83,6 @@
         android:textColor="@color/text_yellow"
         android:textSize="12sp" />
 
-    <NumberPicker
-        android:id="@+id/minutes"
-        android:layout_width="60dp"
-        android:layout_height="110dp"
-        android:layout_marginRight="50dp"
-        android:layout_x="125dp"
-        android:layout_y="210dp"
-        android:gravity="center" />
-
-    <RadioGroup
-        android:id="@+id/priorityGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="204dp"
-        android:layout_y="224dp" >
-
-        <RadioButton
-            android:id="@+id/hiPriority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:onClick="onRadioButtonClicked"
-            android:text="High" />
-
-        <RadioButton
-            android:id="@+id/mediumPriority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="Medium" />
-
-        <RadioButton
-            android:id="@+id/lowPriority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="Low" />
-    </RadioGroup>
-
     <TextView
         android:id="@+id/textHours"
         android:layout_width="wrap_content"
@@ -109,22 +92,4 @@
         android:text="Hours"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/textMinutes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="216dp"
-        android:layout_y="190dp"
-        android:text="Priority"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/textPriority"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="128dp"
-        android:layout_y="190dp"
-        android:text="Minutes"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-</AbsoluteLayout>
+</LinearLayout>
