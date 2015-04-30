@@ -3,13 +3,10 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry exported="true" kind="lib" path="libs/gson-2.2.4-javadoc.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/gson-2.2.4-sources.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/gson-2.2.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Juan/Project-LES/Parse-1.8.2/Parse-1.8.2.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Juan/ProjetoPilotoLes/joda-time-2.7-dist/joda-time-2.7/joda-time-2.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="joda-time-2.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="Parse-1.8.2.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
