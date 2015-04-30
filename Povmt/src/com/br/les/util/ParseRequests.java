@@ -21,13 +21,13 @@ public class ParseRequests {
         JSONObject userProfile = currentUser.getJSONObject("profile");
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
                 "Activity");
-        query.whereEqualTo("userID",userProfile.getString("facebookId"));
+        query.whereEqualTo("user",userProfile.getString("facebookId"));
         query.findInBackground( new FindCallback<ParseObject>() {
             
             @Override
             public void done(List<ParseObject> arg0, ParseException arg1) {
                 for(ParseObject atv : arg0) {
-                    activities.add(new ActivityTI(atv.getString("name"), atv.getDate("started"),atv.getDate("finished"), atv.getInt("priority")));
+                    activities.add(new ActivityTI(atv.getString("name"), atv.getDate("activityDay"),atv.getString("priority"), atv.getLong("duration")));
                 }
             }
         });

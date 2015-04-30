@@ -24,7 +24,6 @@ import android.widget.Toast;
 
 import com.br.les.povmt.R;
 import com.br.les.report.TabsPagerAdapter;
-import com.google.gson.Gson;
 
 public class WeeklyMonitoring extends FragmentActivity implements TabListener {
 
@@ -54,7 +53,7 @@ public class WeeklyMonitoring extends FragmentActivity implements TabListener {
 
             if (bundle != null) {
                 json = bundle.getString(JSONUSER);
-                Gson gson = new Gson();
+                //Gson gson = new Gson();
             } else {
                 String possibleEmail = "";
                 try {

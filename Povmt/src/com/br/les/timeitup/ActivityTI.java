@@ -3,17 +3,14 @@ package com.br.les.timeitup;
 
 import java.util.Calendar;
 import java.util.Date;
-
-import org.joda.time.DateTime;
-import org.joda.time.Interval;
+import java.util.concurrent.TimeUnit;
 
 public class ActivityTI implements Comparable<ActivityTI> {
 
     private String name;
-    private Date started;
-    private Date finished;
-    private int priority;
-    private final int mDayOfYear;
+    private Date day;
+    private String priority;
+    private long duration;
     private final Calendar c = Calendar.getInstance();
 
     /**
@@ -23,14 +20,6 @@ public class ActivityTI implements Comparable<ActivityTI> {
      * @param finished
      * @param started - The time spent on this Activity
      */
-    public ActivityTI(final String name, final Date started, final Date finished,
-            final int priority) {
-        this.name = name;
-        this.started = started;
-        this.finished = finished;
-        this.priority = priority;
-        mDayOfYear = c.get(Calendar.DAY_OF_YEAR);
-    }
 
     /**
      * Creator for a new ActivityTI.
@@ -43,6 +32,14 @@ public class ActivityTI implements Comparable<ActivityTI> {
         int result = 1;
         result = prime * result + (name == null ? 0 : name.hashCode());
         return result;
+    }
+
+    public ActivityTI(String name, Date day, String priority, long duration) {
+        super();
+        this.name = name;
+        this.day = day;
+        this.priority = priority;
+        this.duration = duration;
     }
 
     /**
@@ -95,13 +92,13 @@ public class ActivityTI implements Comparable<ActivityTI> {
      * @param hour - The time for add in this ActivityTI.
      */
     public final void addTime(final int hour, final int minute) {
-//        this.started += hour;
-//        this.finished += minute;
-//
-//        if (this.finished > 60) {
-//            this.started++;
-//            this.finished -= 60;
-//        }
+        // this.started += hour;
+        // this.finished += minute;
+        //
+        // if (this.finished > 60) {
+        // this.started++;
+        // this.finished -= 60;
+        // }
     }
 
     /**
@@ -110,16 +107,7 @@ public class ActivityTI implements Comparable<ActivityTI> {
      * @return - int that represents this activity priority.
      */
     public final String getPriority() {
-        switch (priority) {
-            case 2:
-                return "High";
-            case 1:
-                return "Medium";
-            case 0:
-                return "Low";
-            default:
-                return "";
-        }
+        return priority;
     }
 
     /**
@@ -127,7 +115,7 @@ public class ActivityTI implements Comparable<ActivityTI> {
      * 
      * @param priority - The new priority of this ActivityTI.
      */
-    public final void setPriority(final int priority) {
+    public final void setPriority(final String priority) {
         this.priority = priority;
     }
 
@@ -139,55 +127,31 @@ public class ActivityTI implements Comparable<ActivityTI> {
      */
     @Override
     public final int compareTo(final ActivityTI actTi) {
-//        if (getStart() > actTi.started) {
-//            return -1;
-//        } else if (getStart() < actTi.getStart()) {
-//            return 1;
-//        }
+        // if (getStart() > actTi.started) {
+        // return -1;
+        // } else if (getStart() < actTi.getStart()) {
+        // return 1;
+        // }
         return 0;
     }
 
-    /**
-     * @return String in the format <Activity_name> : <Activity_time>.
-     */
-    @Override
-    public final String toString() {
-        return " "
-                + getName()
-                + " - "
-                + (String.valueOf(getStart()).length() >= 2 ? getStart() : "0"
-                        + getStart())
-                + ":"
-                + (String.valueOf(getEnd()).length() == 2 ? getEnd()
-                        : "0" + getEnd()) + " - "
-                + getPriority();
-    }
-
-    public final Date getEnd() {
-        return finished;
-    }
-
-    public final void setEnd(final Date newEnd) {
-        this.finished = newEnd;
-    }
-
     public final Date getStart() {
-        return started;
+        return day;
     }
 
     public final void setStart(final Date newStart) {
-        this.started = newStart;
+        this.day = newStart;
     }
 
-    public final String getTime() {
-        DateTime start = new DateTime(started);
-        DateTime end = new DateTime(finished);
-        Interval interval = new Interval(start, end);      
-        return interval.toString();
+    public final String getDuration() {
+        return String.format(
+                "%d min, %d sec",
+                TimeUnit.MILLISECONDS.toHours(duration),
+                TimeUnit.MILLISECONDS.toMinutes(duration)
+                        -
+                        TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS
+                                .toHours(duration))
+                );
     }
 
-    public final int getDayOfTI() {
-
-        return mDayOfYear;
-    }
 }

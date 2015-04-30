@@ -1,95 +1,105 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context="${packageName}.${activityClass}" >
-
-    <EditText
-        android:id="@+id/name_field"
-        android:layout_marginBottom="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
-    
-    <TimePicker
-        android:id="@+id/timePicker1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
     <LinearLayout
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:padding="20dp"
+        android:layout_height="fill_parent"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/tvDateStart"
+        <EditText
+            android:id="@+id/name_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Medium Text"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:layout_marginBottom="20dp"
+            android:ems="10" >
 
-        <Button
-            android:layout_marginLeft="30dp"
-            android:id="@+id/dateStartBt"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/calendar" />
+            <requestFocus
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tvDateStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Button
+                android:id="@+id/dateStartBt"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/calendar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <NumberPicker
+                android:id="@+id/nnPickHour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvSeparator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <NumberPicker
+                android:id="@+id/nPickMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinnerPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/button_create"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Create" />
+
+            <Button
+                android:id="@+id/button_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Cancel" />
+        </LinearLayout>
     </LinearLayout>
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/TI_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="34dp"
-        android:layout_x="109dp"
-        android:layout_y="60dp"
-        android:gravity="center"
-        android:text="Create TI"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/button_create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="86dp"
-        android:layout_y="346dp"
-        android:background="@color/button_default"
-        android:gravity="center"
-        android:text="Create"
-        android:textColor="@color/text_yellow"
-        android:textSize="12sp" />
-
-    <Button
-        android:id="@+id/button_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="171dp"
-        android:layout_y="346dp"
-        android:background="@color/button_default"
-        android:gravity="center"
-        android:text="Cancel"
-        android:textColor="@color/text_yellow"
-        android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/textHours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="63dp"
-        android:layout_y="190dp"
-        android:text="Hours"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-</LinearLayout>
+</ScrollView>
