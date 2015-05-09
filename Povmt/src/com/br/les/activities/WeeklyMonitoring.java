@@ -53,7 +53,7 @@ public class WeeklyMonitoring extends FragmentActivity implements TabListener {
 
             if (bundle != null) {
                 json = bundle.getString(JSONUSER);
-                //Gson gson = new Gson();
+                // Gson gson = new Gson();
             } else {
                 String possibleEmail = "";
                 try {
@@ -67,13 +67,12 @@ public class WeeklyMonitoring extends FragmentActivity implements TabListener {
                     Log.i("Exception", "Exception:" + e);
                 }
 
-                
                 // No Google account logged
                 if ("".equals(possibleEmail)) {
                     dialogError(R.string.user_login_error,
                             R.string.try_again_user_login);
                 } else {
-                    
+
                 }
             }
             initiatingView();
@@ -131,6 +130,7 @@ public class WeeklyMonitoring extends FragmentActivity implements TabListener {
     @Override
     public void onTabSelected(final Tab tab, final FragmentTransaction ft)
             throws UnsupportedOperationException {
+        viewPager.setCurrentItem(tab.getPosition());
     }
 
     @Override

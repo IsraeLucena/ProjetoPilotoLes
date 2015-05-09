@@ -70,19 +70,21 @@ public class CreateTI extends Activity {
         npHour.setMaxValue(100);
         npHour.setMinValue(0);
         npHour.setOnValueChangedListener(new OnValueChangeListener() {
-            
+
             @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-               hour = newVal;                
+            public void onValueChange(NumberPicker picker, int oldVal,
+                    int newVal) {
+                hour = newVal;
             }
         });
         final NumberPicker npMin = (NumberPicker) findViewById(R.id.nPickMin);
         npMin.setMaxValue(59);
         npMin.setMinValue(0);
         npMin.setOnValueChangedListener(new OnValueChangeListener() {
-            
+
             @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+            public void onValueChange(NumberPicker picker, int oldVal,
+                    int newVal) {
                 min = newVal;
             }
         });
@@ -178,8 +180,10 @@ public class CreateTI extends Activity {
                 EditText activityName = (EditText) findViewById(R.id.name_field);
                 toast.show();
                 ParseObject newActivity = new ParseObject("Activity");
-                Date date = new Date(day + "/" + month + "/"
-                        + year);
+                Date date = new Date();
+                date.setMonth(month);
+                date.setYear(year - 1900);
+                date.setDate(day);
                 try {
                     String faceId = ParseUser.getCurrentUser()
                             .getJSONObject("profile")
@@ -230,14 +234,14 @@ public class CreateTI extends Activity {
         public void onDateSet(DatePicker view, int selectedYear,
                 int selectedMonth, int selectedDay) {
             year = selectedYear;
-            month = selectedMonth + 1;
+            month = selectedMonth;
             day = selectedDay;
             String date;
             // set selected date into textvie
             if (month > 9) {
-                date = day + "/" + month + "/" + year;
+                date = day + "/" + month + 1 + "/" + year;
             } else {
-                date = day + "/0" + month + "/" + year;
+                date = day + "/0" + month + 1 + "/" + year;
             }
             tvDateStart.setText(date);
             // set selected date into datepicker also

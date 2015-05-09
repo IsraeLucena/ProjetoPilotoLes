@@ -15,11 +15,15 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int index) {
 
         switch (index) {
+            case 0:
+                return new CurrentWeek();
+            case 1:
+                return new LastWeek();
             case 2:
                 // third week fragment activity
                 return new ThirdWeek();
             default:
-                return new ThirdWeek();
+                return null;
         }
 
     }

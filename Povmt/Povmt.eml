@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component jdk="Android 5.1.1 Google APIs" jdk_type="Android SDK">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<levels>
+		<level name="Parse-1.8.2" value="project"/>
+		<level name="joda-time-2.7" value="project"/>
+		<level name="Povmt" value="project"/>
+	</levels>
+</component>

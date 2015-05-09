@@ -64,9 +64,14 @@
         </activity>
 
         <receiver
-            android:name="MyBroadcastReceiver"
+            android:name=".MyBroadcastReceiver"
             android:process=":remote" >
         </receiver>
+
+        <activity
+            android:name="com.br.les.activities.InfoDialog"
+            android:label="@string/title_activity_info" >
+        </activity>
     </application>
 
 </manifest>

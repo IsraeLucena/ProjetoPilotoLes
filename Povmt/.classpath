@@ -4,9 +4,11 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Juan/ProjetoPilotoLes/joda-time-2.7-dist/joda-time-2.7/joda-time-2.7.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Juan/ProjetoPilotoLes/Parse-1.8.2/Parse-1.8.2.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/joda-time-2.7"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Povmt"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_45"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/juan/git/ProjetoPilotoLes/Parse-1.8.2/Parse-1.8.2.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

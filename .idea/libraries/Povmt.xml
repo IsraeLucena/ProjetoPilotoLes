@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Povmt">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Povmt" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/Povmt/gen" />
+      <root url="file://$PROJECT_DIR$/Povmt/src" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/Povmt" recursive="false" />
+  </library>
+</component>
