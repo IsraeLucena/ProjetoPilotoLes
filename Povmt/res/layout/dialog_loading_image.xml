@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical|center_horizontal"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="Selecione a imagem"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/button2Cam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_menu_camera"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="90dp"
+            android:text="Imagem da Camera"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/button1Galery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_menu_gallery"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="90dp"
+            android:text="Imagem da Galeria"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+</LinearLayout>

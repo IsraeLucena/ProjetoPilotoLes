@@ -15,8 +15,12 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.SERVICE" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <uses-sdk
-        android:minSdkVersion="15"
+        android:minSdkVersion="18"
         android:targetSdkVersion="21" />
 
     <application

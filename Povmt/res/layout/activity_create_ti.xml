@@ -4,99 +4,182 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:padding="20dp"
         android:layout_height="fill_parent"
+        android:background="@drawable/bg"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:padding="20dp" >
 
-        <EditText
-            android:id="@+id/name_field"
+        <ImageView
+            android:id="@+id/imageActivity"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/defaultimaje" />
+
+        <Button
+            android:id="@+id/selectImage"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:ems="10" >
-
-            <requestFocus
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </EditText>
+            android:background="@drawable/button_setup"
+            android:padding="10dp"
+            android:text="Selecionar Imagem" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:orientation="horizontal" >
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_normal"
+            android:gravity="center|left"
+            android:orientation="vertical"
+            android:padding="20dp" >
 
             <TextView
-                android:id="@+id/tvDateStart"
+                android:id="@+id/tvNameActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Medium Text"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:text="Atividade"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <Button
-                android:id="@+id/dateStartBt"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/calendar" />
+            <EditText
+                android:id="@+id/name_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:ems="10" >
+
+                <requestFocus
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_normal"
+            android:gravity="center|left"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <TextView
+                android:id="@+id/tvDateActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tvDateStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medium Text"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <Button
+                    android:id="@+id/dateStartBt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_setup"
+                    android:padding="10dp"
+                    android:text="Selecionar Data" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_normal"
+            android:gravity="center|left"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <TextView
+                android:id="@+id/tvTimeActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <NumberPicker
+                    android:id="@+id/nnPickHour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp" />
+
+                <TextView
+                    android:id="@+id/tvSeparator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <NumberPicker
+                    android:id="@+id/nPickMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_normal"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/spinnerPriority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <NumberPicker
-                android:id="@+id/nnPickHour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp" />
-
-            <TextView
-                android:id="@+id/tvSeparator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=":"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <NumberPicker
-                android:id="@+id/nPickMin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <Spinner
-            android:id="@+id/spinnerCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/spinnerPriority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:orientation="horizontal" >
 
             <Button
                 android:id="@+id/button_create"
+                style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_setup"
                 android:gravity="center"
                 android:text="Create" />
 
             <Button
                 android:id="@+id/button_cancel"
+                style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_setup"
                 android:gravity="center"
                 android:text="Cancel" />
         </LinearLayout>
